@@ -44,6 +44,7 @@
                                         <connections>
                                             <action selector="test:" destination="gup-uI-an3" eventType="touchUpInside" id="yr9-5a-4pB"/>
                                             <action selector="testBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wzk-KH-uGf"/>
+                                            <segue destination="EUJ-RM-IR4" kind="show" id="ZSs-Oa-l67"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -149,6 +150,14 @@
                 <exit id="gup-uI-an3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="fsS-Ed-kV6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Menu" id="EUJ-RM-IR4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KhZ-u0-Mot" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="692" y="-63"/>
         </scene>
     </scenes>
     <resources>
