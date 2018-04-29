@@ -79,6 +79,10 @@ struct PostService: PostServiceType {
         }
     }
     
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcb480c36e26b66ad2f7ff038dfc43d79853af10
     static func locationIn(text: String, completion: @escaping (Result<LocationData>) -> ()) {
         
         let params: Parameters = [
@@ -124,8 +128,15 @@ struct PostService: PostServiceType {
                 case .failure(let error):
                     completion(.error(error))
                 }
+<<<<<<< HEAD
             }
     }
+=======
+        }
+    }
+
+
+>>>>>>> dcb480c36e26b66ad2f7ff038dfc43d79853af10
     static func setOrder(orderData: [String:Any], completion: @escaping (Result<OrderData>) -> ()) {
         guard let url = URL(string: API.postCart.urlString),
             let urlRequest = try? URLRequest(url: url, method: .post, headers: ["Authorization": "token a0224ede337f2245a0b80d0157872de58284b4e9"])

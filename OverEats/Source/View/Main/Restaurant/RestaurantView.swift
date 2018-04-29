@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RestaurantViewDelegate {
-    func tappedView(_ restaurantView: RestaurantView, restaurant: Lestaurant)
+    func tappedView(_ restaurantView: RestaurantView, restaurant: Restaurant)
 }
 
 class RestaurantView: UIView {
@@ -26,15 +26,9 @@ class RestaurantView: UIView {
     @IBOutlet weak var restaurantScoreStack: UIStackView! // 평점 스택
     @IBOutlet weak var restaurantDescriptionStack: UIStackView! // 소개 스택
     
-    var restaurant: Lestaurant? {
-        didSet{
-            setRestaurantData()
-        }
-    }
-    
     var delegate: RestaurantViewDelegate?
     
-    var restaurant: Lestaurant? {
+    var restaurant: Restaurant? {
         didSet{
             setLayoutWithData()
         }
@@ -53,8 +47,14 @@ class RestaurantView: UIView {
     @objc func tappedView(_ sender: UITapGestureRecognizer){
         delegate?.tappedView(self, restaurant: restaurant!)
     }
+<<<<<<< HEAD
     
     func setLayoutWithData() {
+=======
+
+    func setLayoutWithData() {
+
+>>>>>>> dcb480c36e26b66ad2f7ff038dfc43d79853af10
         if let restaurant = restaurant {
             self.restaurantImageView.loadImageUsingCacheWithUrl(urlString: restaurant.logo) { (success) in
             }

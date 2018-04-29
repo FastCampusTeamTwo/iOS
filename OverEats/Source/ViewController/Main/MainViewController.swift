@@ -13,9 +13,9 @@ class MainViewController: UIViewController {
     var getService: GetServiceType?
     
     var notices: [Notice]?
-    var restaurants: [Lestaurant]?
-    var nearRestaurants: [Lestaurant] = []
-    var prefRestaurants: [Lestaurant] = []
+    var restaurants: [Restaurant]?
+    var nearRestaurants: [Restaurant] = []
+    var prefRestaurants: [Restaurant] = []
     
     var listStatusBits: UInt8 = 0b000
     var listNumberOfSection = 0
@@ -214,6 +214,7 @@ extension MainViewController: UITableViewDelegate {
 }
 
 extension MainViewController: RestaurantViewDelegate {
+<<<<<<< HEAD
 
     func tappedView(_ restaurantView: RestaurantView) {
         
@@ -226,6 +227,18 @@ extension MainViewController: RestaurantViewDelegate {
         
         self.present(nextViewController, animated: true, completion: nil)
 //        nextViewController.setData(restaurant: restaurant)
+=======
+
+    func tappedView(_ restaurantView: RestaurantView, restaurant: Restaurant) {
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        
+//        self.definesPresentationContext = true
+//        self.modalPresentationStyle = .currentContext
+//        nextViewController.modalPresentationStyle = .CurrentContext
+        self.present(nextViewController, animated: true, completion: nil)
+        nextViewController.setData(restaurant: restaurant)
+>>>>>>> dcb480c36e26b66ad2f7ff038dfc43d79853af10
 
     }
     
