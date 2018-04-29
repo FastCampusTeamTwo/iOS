@@ -37,6 +37,7 @@ enum API: APIProtocol
         case restaurantList = "/restaurant/?lat=%.6f&lng=%.6f&page_size=%d"
         case notice = "/banner"
         case menuList = "/restaurant/%@/menu"
+        case tagList = "/restaurant/category/?page_size=%d"
         case mapImage = "/address/map/?lat=%.6f&lng=%.6f&"
     }
     // POST API URL 리스트를 열거형으로 정의
@@ -44,26 +45,35 @@ enum API: APIProtocol
     {
         case login = "/login/"
         case singUp = "/member/user/"
+        case location = "/address/"
+        case userLocation = "/address/geocode/"
         case cart =  "/order/payment/"
     }
     
     // GET API
-    case getRestaurantList(latitude: Float, longitude: Float, pageSize: Int)
+    case getRestaurantList(latitude: Float, longitude: Float, pageSize: Int, searchText: String?)
     case getNotice
     case getMenuList(restaurantId: String)
+    case tagList(pageSize: Int)
     case getMapImage(latitude: Float, longitude: Float)
     
     // POST API
     case postLogin
     case postSignUp
+    case location
+    case userLocation
     case postCart
     
     // endPoint에 파라미터 값을 반환하는 변수
     private var endpointString: String {
         get {
             switch self {
-            case .getRestaurantList(let latitude, let longitude, let pageSize):
-                return String(format: GET_LIST.restaurantList.rawValue, latitude, longitude, pageSize)
+            case .getRestaurantList(let latitude, let longitude, let pageSize, let searchText):
+                var tempString: String = String(format: GET_LIST.restaurantList.rawValue, latitude, longitude, pageSize)
+                if let text = searchText {
+                    tempString.append("&search_text=\(text)")
+                }
+                return tempString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             case .postLogin:
                 return String(format: POST_LIST.login.rawValue)
             case .getNotice:
@@ -74,6 +84,12 @@ enum API: APIProtocol
                 return String(format: GET_LIST.mapImage.rawValue, latitude, longitude)
             case .postSignUp:
                 return String(format: POST_LIST.singUp.rawValue)
+            case .tagList(let pageSize):
+                return String(format: GET_LIST.tagList.rawValue, pageSize)
+            case .location:
+                return String(format: POST_LIST.location.rawValue)
+            case .userLocation:
+                return String(format: POST_LIST.userLocation.rawValue)
             case .postCart:
                 return String(format: POST_LIST.cart.rawValue)
             }
@@ -88,9 +104,9 @@ enum API: APIProtocol
         }
     }
     
-//    var URL: NSURL? {
-//        get {
-//            return NSURL(string: self.urlString)
-//        }
-//    }
+    var URL: NSURL? {
+        get {
+            return NSURL(string: self.urlString)
+        }
+    }
 }

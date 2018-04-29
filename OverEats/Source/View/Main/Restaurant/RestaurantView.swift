@@ -34,6 +34,12 @@ class RestaurantView: UIView {
     
     var delegate: RestaurantViewDelegate?
     
+    var restaurant: Lestaurant? {
+        didSet{
+            setLayoutWithData()
+        }
+    }
+    
     // restaurantView 를 호출받는 함수
     class func loadNib() -> RestaurantView {
         return UINib(nibName: "RestaurantView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! RestaurantView
@@ -48,7 +54,7 @@ class RestaurantView: UIView {
         delegate?.tappedView(self, restaurant: restaurant!)
     }
     
-    func setRestaurantData() {
+    func setLayoutWithData() {
         if let restaurant = restaurant {
             self.restaurantImageView.loadImageUsingCacheWithUrl(urlString: restaurant.logo) { (success) in
             }
@@ -59,7 +65,7 @@ class RestaurantView: UIView {
                 if index == 0{
                     sumCategoryString.append("\(category.name) ")
                 }else {
-                    sumCategoryString.append("•\(category.name) ")
+                    sumCategoryString.append("・ \(category.name) ")
                 }
                 
             }
@@ -67,15 +73,15 @@ class RestaurantView: UIView {
             
             self.restaurantDeliveryTimeLabel.text = "\(restaurant.etaRange.min)-\(restaurant.etaRange.max)분"
             
-            //            self.restaurantBottomStack.removeFromSuperview()
+            self.restaurantScoreLabel.text = "\(restaurant.rating) (\(restaurant.ratingCount))"
             
+            if restaurant.endorsement != nil {
+                restaurantDescriptionStack.isHidden = false
+                self.restaurantDescriptionLabel.text = restaurant.endorsement?.text
+            }else {
+                restaurantDescriptionStack.isHidden = true
+            }
             
-            // 차후 Description 이 생기면 실행
-            //            if restaurant.description != "" {
-            //                self.restaurantDescriptionLabel.text = restaurant.
-            //            }else {
-            //                self.restaurantBottomStack.removeFromSuperview()
-            //            }
         }
         
     }

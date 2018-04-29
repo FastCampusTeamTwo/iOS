@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
 //        return self
 //    }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getRestaurantData()
@@ -42,9 +43,10 @@ class MainViewController: UIViewController {
         self.mainTableView.estimatedSectionHeaderHeight = CGFloat.leastNormalMagnitude
         
     }
+
     
     private func getRestaurantData(){
-        GetService.getRestaurantList(completion: { (result) in
+        GetService.getRestaurantList(latitude: 37.524124, longitude: 127.022881, pageSize: 20, searchText: nil, completion: { (result) in
             switch result {
             case .success(let restaurantData):
                 self.restaurants = restaurantData.restaurants
@@ -209,24 +211,22 @@ extension MainViewController: UITableViewDelegate {
         
     }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-//        let nextViewController = storyboard.instantiateViewController(withIdentifier: "Menu") as! MenuViewController
-//        nextViewController.restaurantInfomation =
-//        self.present(nextViewController, animated: true, completion: nil)
-//    }
 }
 
 extension MainViewController: RestaurantViewDelegate {
-    func tappedView(_ restaurantView: RestaurantView, restaurant: Lestaurant) {
-        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-        let nextViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+
+    func tappedView(_ restaurantView: RestaurantView) {
         
-//        self.definesPresentationContext = true
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "Menu") as! MenuViewController
+
+        self.definesPresentationContext = true
         self.modalPresentationStyle = .currentContext
-//        nextViewController.modalPresentationStyle = .CurrentContext
+        //        nextViewController.modalPresentationStyle = .CurrentContext
+        
         self.present(nextViewController, animated: true, completion: nil)
-        nextViewController.setData(restaurant: restaurant)
+//        nextViewController.setData(restaurant: restaurant)
+
     }
     
     

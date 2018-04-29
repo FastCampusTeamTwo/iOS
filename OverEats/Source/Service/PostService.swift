@@ -79,6 +79,53 @@ struct PostService: PostServiceType {
         }
     }
     
+    static func locationIn(text: String, completion: @escaping (Result<LocationData>) -> ()) {
+        
+        let params: Parameters = [
+            "search_text": text,
+            "language": "ko"
+        ]
+        
+        Alamofire.request(API.location.urlString, method: .post, parameters: params)
+            .validate()
+            .responseData { (response) in
+                switch response.result {
+                case .success(let value):
+                    do {
+                        let userData = try value.decode(LocationData.self)
+                        completion(.success(userData))
+                    } catch {
+                        completion(.error(error))
+                    }
+                case .failure(let error):
+                    completion(.error(error))
+                }
+        }
+    }
+    
+    static func userLocation(latitude: Double, longitude: Double, completion: @escaping (Result<UserLocation>) -> ()) {
+        
+        let params: Parameters = [
+            "latitude": latitude,
+            "longitude": longitude
+        ]
+        
+        Alamofire.request(API.userLocation.urlString, method: .post, parameters: params)
+            .validate()
+            .responseData { (response) in
+                switch response.result {
+                case .success(let value):
+                    do {
+                        let userData = try value.decode(UserLocation.self)
+                        completion(.success(userData))
+                    } catch {
+                        completion(.error(error))
+                    }
+                case .failure(let error):
+                    completion(.error(error))
+                }
+            }
+    }
     static func setOrder(orderData: [String:Any], completion: @escaping (Result<OrderData>) -> ()) {
         guard let url = URL(string: API.postCart.urlString),
             let urlRequest = try? URLRequest(url: url, method: .post, headers: ["Authorization": "token a0224ede337f2245a0b80d0157872de58284b4e9"])
@@ -112,5 +159,6 @@ struct PostService: PostServiceType {
             }
         }
     }
-    
 }
+    
+
