@@ -214,6 +214,7 @@ extension MainViewController: UITableViewDelegate {
 }
 
 extension MainViewController: RestaurantViewDelegate {
+
     func tappedView(_ restaurantView: RestaurantView) {
         
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
@@ -225,8 +226,8 @@ extension MainViewController: RestaurantViewDelegate {
         
         self.present(nextViewController, animated: true, completion: nil)
 //        nextViewController.setData(restaurant: restaurant)
-        
-        
 
     }
+    
+    
 }
