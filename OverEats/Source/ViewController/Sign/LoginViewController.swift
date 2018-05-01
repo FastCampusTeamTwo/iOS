@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+import Alamofire // 처리
 
 class LoginViewController: UIViewController {
     
