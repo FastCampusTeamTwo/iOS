@@ -118,12 +118,6 @@ class LocationViewController: UIViewController {
 
 
     
-    
-    
-    
-    
-    
-    
 }
 
 extension LocationViewController: CLLocationManagerDelegate {

@@ -65,8 +65,10 @@ class ProfileCreateViewController: UIViewController {
             
             let imageData = UIImageJPEGRepresentation(self.profileImage.image!, 0.1)
             
-            PostService.singUp(singUpData: signUpDic, imageData: imageData, completion: {(result) in
-                switch result {
+            PostService.singUp(singUpData: signUpDic,
+                               imageData: imageData,
+                               completion: {(result) in switch result {
+                
                 case .success(let userData):
                     
                     UserManager.setUser = userData
@@ -86,7 +88,9 @@ class ProfileCreateViewController: UIViewController {
         // 모든 TextField의 정규식이 false일 때
         if firstNameCheck == false && lastNameCheck == false {
             
-            showAlert(alertTitle: "이름과 성 입력", alertMessage: "이름과 성을 입력 해주세요", actionTitle: "확인")
+            showAlert(alertTitle: "이름과 성 입력",
+                      alertMessage: "이름과 성을 입력 해주세요",
+                      actionTitle: "확인")
             
         }
         
@@ -96,14 +100,18 @@ class ProfileCreateViewController: UIViewController {
             // lastNameTf가 false일 때
             if lastNameCheck == false {
                 
-                showAlert(alertTitle: "이름 입력", alertMessage: "이름을 잘못 입력했습니다.", actionTitle: "확인")
+                showAlert(alertTitle: "이름 입력",
+                          alertMessage: "이름을 잘못 입력했습니다.",
+                          actionTitle: "확인")
                 
             }
                 
                 // firstNameTf가 false일 때
             else if firstNameCheck == false {
                 
-                showAlert(alertTitle: "성 입력", alertMessage: "성을 잘못 입력했습니다.", actionTitle: "확인")
+                showAlert(alertTitle: "성 입력",
+                          alertMessage: "성을 잘못 입력했습니다.",
+                          actionTitle: "확인")
                 
             }
         }
@@ -136,13 +144,13 @@ class ProfileCreateViewController: UIViewController {
     //imageView에 gesture 적용 내용
     @objc func viewtap(_ sender: UITapGestureRecognizer) {
         
-        let alert =  UIAlertController(title: "프로필 이미지", message: "프로필 이미지 추가 방법 선택", preferredStyle: .actionSheet)
-        let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in
-            self.openLibrary()
-        }
-        let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in
-            self.openCamera()
-        }
+        let alert =  UIAlertController(title: "프로필 이미지",
+                                       message: "프로필 이미지 추가 방법 선택",
+                                       preferredStyle: .actionSheet)
+        let library =  UIAlertAction(title: "사진앨범",
+                                     style: .default) { (action) in self.openLibrary() }
+        let camera =  UIAlertAction(title: "카메라",
+                                    style: .default) { (action) in self.openCamera() }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         alert.addAction(library)
