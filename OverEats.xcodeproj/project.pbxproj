@@ -19,8 +19,6 @@
 		290F541320847D470061A878 /* MainListSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F541220847D470061A878 /* MainListSetup.swift */; };
 		291A567B208B2E3100E04130 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A567A208B2E3100E04130 /* UserManager.swift */; };
 		291A567D208CC79300E04130 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A567C208CC79300E04130 /* SearchViewController.swift */; };
-		291A5680208DA5CD00E04130 /* KakaoTalk_Photo_2018-04-23-14-24-58.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 291A567E208DA5CB00E04130 /* KakaoTalk_Photo_2018-04-23-14-24-58.jpeg */; };
-		291A5681208DA5CD00E04130 /* KakaoTalk_Photo_2018-04-23-14-25-08_36.png in Resources */ = {isa = PBXBuildFile; fileRef = 291A567F208DA5CC00E04130 /* KakaoTalk_Photo_2018-04-23-14-25-08_36.png */; };
 		291A5686208EAA2F00E04130 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A5685208EAA2F00E04130 /* SearchCollectionViewCell.swift */; };
 		291A5688208EC04A00E04130 /* SearchCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A5687208EC04A00E04130 /* SearchCollectionHeaderView.swift */; };
 		291A568C208F489A00E04130 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A568B208F489A00E04130 /* SearchTableViewCell.swift */; };
@@ -38,7 +36,6 @@
 		29227F24208613080056A67F /* RecommendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29227F23208613080056A67F /* RecommendTableViewCell.swift */; };
 		292582C72085C44D00FFE782 /* NoticeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292582C62085C44D00FFE782 /* NoticeData.swift */; };
 		292582CA2085DD9100FFE782 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292582C92085DD9100FFE782 /* RestaurantTableViewCell.swift */; };
-		292582CC2085E26C00FFE782 /* KakaoTalk_Photo_2018-04-02-17-22-07.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 292582CB2085E26C00FFE782 /* KakaoTalk_Photo_2018-04-02-17-22-07.jpeg */; };
 		2933C2BE20899DE3002DAAA4 /* SelectMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933C2BD20899DE3002DAAA4 /* SelectMenuViewController.swift */; };
 		29DF70E4207E393800E1D023 /* SetTableAutolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DF70E3207E393800E1D023 /* SetTableAutolayout.swift */; };
 		29DF70E6207ED7E400E1D023 /* MainHeaderInSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DF70E5207ED7E400E1D023 /* MainHeaderInSection.swift */; };
@@ -97,8 +94,6 @@
 		290F541220847D470061A878 /* MainListSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListSetup.swift; sourceTree = "<group>"; };
 		291A567A208B2E3100E04130 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		291A567C208CC79300E04130 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		291A567E208DA5CB00E04130 /* KakaoTalk_Photo_2018-04-23-14-24-58.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "KakaoTalk_Photo_2018-04-23-14-24-58.jpeg"; path = "../../../../../Downloads/KakaoTalk_Photo_2018-04-23-14-24-58.jpeg"; sourceTree = "<group>"; };
-		291A567F208DA5CC00E04130 /* KakaoTalk_Photo_2018-04-23-14-25-08_36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "KakaoTalk_Photo_2018-04-23-14-25-08_36.png"; path = "../../../../../Downloads/KakaoTalk_Photo_2018-04-23-14-25-08_36.png"; sourceTree = "<group>"; };
 		291A5685208EAA2F00E04130 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCollectionViewCell.swift; path = OverEats/Source/View/Main/Search/SearchCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		291A5687208EC04A00E04130 /* SearchCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCollectionHeaderView.swift; path = OverEats/Source/View/Main/Search/SearchCollectionHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		291A568B208F489A00E04130 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,7 +111,6 @@
 		29227F23208613080056A67F /* RecommendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendTableViewCell.swift; sourceTree = "<group>"; };
 		292582C62085C44D00FFE782 /* NoticeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeData.swift; sourceTree = "<group>"; };
 		292582C92085DD9100FFE782 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
-		292582CB2085E26C00FFE782 /* KakaoTalk_Photo_2018-04-02-17-22-07.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "KakaoTalk_Photo_2018-04-02-17-22-07.jpeg"; path = "../../../../../Downloads/KakaoTalk_Photo_2018-04-02-17-22-07.jpeg"; sourceTree = "<group>"; };
 		2933C2BD20899DE3002DAAA4 /* SelectMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectMenuViewController.swift; sourceTree = "<group>"; };
 		29DF70E3207E393800E1D023 /* SetTableAutolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTableAutolayout.swift; sourceTree = "<group>"; };
 		29DF70E5207ED7E400E1D023 /* MainHeaderInSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderInSection.swift; sourceTree = "<group>"; };
@@ -343,9 +337,6 @@
 		8E8A63782071E9DB007D9B7A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				291A567E208DA5CB00E04130 /* KakaoTalk_Photo_2018-04-23-14-24-58.jpeg */,
-				291A567F208DA5CC00E04130 /* KakaoTalk_Photo_2018-04-23-14-25-08_36.png */,
-				292582CB2085E26C00FFE782 /* KakaoTalk_Photo_2018-04-02-17-22-07.jpeg */,
 				8EE538BC206E25AD006BAC26 /* Main.storyboard */,
 			);
 			path = Main;
@@ -529,7 +520,6 @@
 				8EE538B2206E25AD006BAC26 /* Frameworks */,
 				8EE538B3206E25AD006BAC26 /* Resources */,
 				AA9A28E6D8B91C872ECB3DE2 /* [CP] Embed Pods Frameworks */,
-				96E2A17863D816351E834DAA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -578,17 +568,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				291A5680208DA5CD00E04130 /* KakaoTalk_Photo_2018-04-23-14-24-58.jpeg in Resources */,
 				8EECDB1C208615B200151F43 /* Cart.storyboard in Resources */,
 				8E8A63692071E481007D9B7A /* Sign.storyboard in Resources */,
-				291A5681208DA5CD00E04130 /* KakaoTalk_Photo_2018-04-23-14-25-08_36.png in Resources */,
 				8EECDB342086F2AC00151F43 /* CartCell.xib in Resources */,
 				8EE538C3206E25AE006BAC26 /* LaunchScreen.storyboard in Resources */,
 				291C9F2320749CCE0085E37E /* NoticeImageView.xib in Resources */,
 				8EE538C0206E25AE006BAC26 /* Assets.xcassets in Resources */,
 				8E5B9E7520798BA300921EF4 /* MenuListCell.xib in Resources */,
 				8E8A637A2071EAD0007D9B7A /* Menu.storyboard in Resources */,
-				292582CC2085E26C00FFE782 /* KakaoTalk_Photo_2018-04-02-17-22-07.jpeg in Resources */,
 				8EE538BE206E25AD006BAC26 /* Main.storyboard in Resources */,
 				291C9F33207629A10085E37E /* MainInviteTableViewCell.xib in Resources */,
 				8E3A6008207DBA9A00EB5747 /* SettingCell.xib in Resources */,
@@ -620,21 +607,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		96E2A17863D816351E834DAA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OverEats/Pods-OverEats-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AA9A28E6D8B91C872ECB3DE2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,10 +615,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OverEats/Pods-OverEats-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
