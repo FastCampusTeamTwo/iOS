@@ -26,7 +26,8 @@ class SignViewController: UIViewController {
         //로그인 페이지로 넘어가기
         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         present(nextViewController, animated: true, completion: nil)
-        
+    
+
     }
     
     //회원가입 버튼
@@ -35,6 +36,21 @@ class SignViewController: UIViewController {
         //회원가입 첫 페이지 약관부분으로 넘어가기
         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ToSViewController") as! ToSViewController
         present(nextViewController, animated: true, completion: nil)
+        
+    }
+    
+}
+
+extension UIViewController {
+    
+    func showAlert(alertTitle: String, alertMessage: String, actionTitle: String) {
+        
+        // 경고 창 띄우기
+        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default)
+        alertController.addAction(okAction) // 확인
+        
+        self.present(alertController,animated: true,completion: nil)
         
     }
     

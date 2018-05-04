@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+import SwiftKeychainWrapper
 
 class ProfileCreateViewController: UIViewController {
     
@@ -71,8 +71,22 @@ class ProfileCreateViewController: UIViewController {
                 
                 case .success(let userData):
                     
-                    UserManager.setUser = userData
-                    UserDefaults.standard.set("\(userData.token)", forKey: "userToken")
+//                    UserManager.setUser = userData
+//                    UserDefaults.standard.set("\(userData.token)", forKey: "userToken")
+                    
+                    ////////////////////////////////////////////////
+                    //                키 체인에 문자열 값 추가 :
+                    let saveSuccessful: Bool = KeychainWrapper.standard.set(userData.token, forKey: "userToken")
+                    print(saveSuccessful)
+                    
+                    //                keychain에서 문자열 값 검색 :
+                    let retrievedString: String? = KeychainWrapper.standard.string(forKey: "userToken")
+                    print(retrievedString)
+                    
+                    //                keychain에서 문자열 값 제거 :
+                    let removeSuccessful: Bool = KeychainWrapper.standard.remove(key: "userToken")
+                    print(removeSuccessful)
+                    ////////////////////////////////////////////////
                     
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let nextViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
@@ -87,15 +101,6 @@ class ProfileCreateViewController: UIViewController {
         
         // 모든 TextField의 정규식이 false일 때
         if firstNameCheck == false && lastNameCheck == false {
-            
-            showAlert(alertTitle: "이름과 성 입력",
-                      alertMessage: "이름과 성을 입력 해주세요",
-                      actionTitle: "확인")
-            
-        }
-        
-        // TextField중 하나가 true일 때
-        if firstNameCheck == true || lastNameCheck == true {
             
             // lastNameTf가 false일 때
             if lastNameCheck == false {
@@ -114,7 +119,14 @@ class ProfileCreateViewController: UIViewController {
                           actionTitle: "확인")
                 
             }
+            
+            return
+            
         }
+            showAlert(alertTitle: "이름과 성 입력",
+                      alertMessage: "이름과 성을 입력 해주세요",
+                      actionTitle: "확인")
+        
     }
     
     // 앨범 열기

@@ -10,8 +10,22 @@ import Foundation
 
 class RegularExpression {
     
+    
+    func vaild(regEx: String, text: String) -> Bool{
+        
+        let textTest = NSPredicate(format:"SELF MATCHES %@", regEx)
+        return textTest.evaluate(with: text)
+    }
+    
+    enum regExChange: String {
+        case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        case mobile = "[0-9]{3}+-[0-9]{3,4}+-[0-9]{4}"
+        case text = "^[A-Za-z가-힣]+$"
+    }
+    
     // 자동으로 - 잡아주기
     func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
+        
         
         guard !phoneNumber.isEmpty else { return "" } // text가 있는지 확인
         
@@ -23,6 +37,15 @@ class RegularExpression {
         
         // String형식으로 위에 값들이 적용된 text
         var number = regex.stringByReplacingMatches(in: phoneNumber, options: .init(rawValue: 0), range: textRange, withTemplate: "")
+        
+        // range값 구하기
+        func stringRange(numberCount: Int) -> Range<String.Index>{
+            
+            let end = number.index(number.startIndex, offsetBy: number.count - numberCount)
+            let range = number.startIndex..<end
+            return range
+            
+        }
         
         // offset은 전화번호 최대인 11자 까지 지정해주고 패턴 적용은 10까지 해줘야 한다
         if number.count > 10 {
@@ -41,35 +64,28 @@ class RegularExpression {
         // 4개 이상 입력시 적용
         if number.count <= 3 {
             
-            let end = number.index(number.startIndex, offsetBy: number.count-1)
-            let range = number.startIndex..<end
-            number = number.replacingOccurrences(of: "(\\d{3})", with: "$1",
-                                                 options: .regularExpression, range: range)
+//            let end = number.index(number.startIndex, offsetBy: number.count-1)
+//            let range = number.startIndex..<end
             
+            number = number.replacingOccurrences(of: "(\\d{3})", with: "$1", options: .regularExpression, range: stringRange(numberCount: 1))
         }
-            
+        
         // 7개 이상 입력시 적용
         else if number.count <= 6 {
             
-            let end = number.index(number.startIndex, offsetBy: number.count)
-            let range = number.startIndex..<end
-            number = number.replacingOccurrences(of: "(\\d{3})(\\d+)", with: "$1-$2", options: .regularExpression, range: range)
+            number = number.replacingOccurrences(of: "(\\d{3})(\\d+)", with: "$1-$2", options: .regularExpression, range: stringRange(numberCount: 0))
             
         }
             
         // 10개 이상 입력시 적용
         else if number.count <= 10 {
-            print(number.count)
-            let end = number.index(number.startIndex, offsetBy: number.count)
-            let range = number.startIndex..<end
-            number = number.replacingOccurrences(of: "(\\d{3})(\\d{3})(\\d+)", with: "$1-$2-$3", options: .regularExpression, range: range)
+            
+            number = number.replacingOccurrences(of: "(\\d{3})(\\d{3})(\\d+)", with: "$1-$2-$3", options: .regularExpression, range: stringRange(numberCount: 0))
             
         } else {
             
             // 11개 입력시 적용
-            let end = number.index(number.startIndex, offsetBy: number.count)
-            let range = number.startIndex..<end
-            number = number.replacingOccurrences(of: "(\\d{3})(\\d{4})(\\d+)", with: "$1-$2-$3", options: .regularExpression, range: range)
+            number = number.replacingOccurrences(of: "(\\d{3})(\\d{4})(\\d+)", with: "$1-$2-$3", options: .regularExpression, range: stringRange(numberCount: 0))
             
         }
         return number
@@ -78,28 +94,24 @@ class RegularExpression {
     // E-mail 정규식
     func vaildEmail(emailID: String) -> Bool {
         
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: emailID)
-        
+//        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+//        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+//        return emailTest.evaluate(with: emailID)
+
+        return vaild(regEx: regExChange.email.rawValue, text: emailID)
     }
     
     // PhoneNumer 정규식
     func vaildNumber(mobileNumber: String) -> Bool {
         
-        let mobileRegEx = "[0-9]{3}+-[0-9]{3,4}+-[0-9]{4}"
-        let mobileTest = NSPredicate(format:"SELF MATCHES %@", mobileRegEx)
-        
-        return mobileTest.evaluate(with: mobileNumber)
-        
+        return vaild(regEx: regExChange.mobile.rawValue, text: mobileNumber)
     }
     
     // Name 정규식
     func vaildText(textVaild: String) -> Bool {
         
-        let textRegEx = "^[A-Za-z가-힣]+$"
-        let textTest = NSPredicate(format:"SELF MATCHES %@", textRegEx)
-        return textTest.evaluate(with: textVaild)
+        return vaild(regEx: regExChange.text.rawValue, text: textVaild)
         
     }
+    
 }

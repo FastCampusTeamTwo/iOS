@@ -41,8 +41,6 @@ class ToSViewController: UIViewController {
         PIPButton.isSelected = true
         OptionButton.isSelected = true
         
-        presentNextView()
-        
     }
     
     // 다음 버튼 이벤트
@@ -52,11 +50,16 @@ class ToSViewController: UIViewController {
         guard TosButton.isSelected && PIPButton.isSelected else {
             
             // 경고 창 띄우기
-            showAlert(alertTitle: "필수 약관 체크", alertMessage: "필수 약관에 모두 동의하셔야 회원 가입이 가능합니다.", actionTitle: "확인")
+            showAlert(alertTitle: "필수 약관 체크",
+                      alertMessage: "필수 약관에 모두 동의하셔야 회원 가입이 가능합니다.",
+                      actionTitle: "확인")
             
             return
         }
-        presentNextView()
+        
+        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "CreateIDViewController") as! CreateIDViewController
+        present(nextViewController, animated: true, completion: nil)
+        
     }
     
     // 이전 화면으로 dismiss 하는 버튼
@@ -65,25 +68,3 @@ class ToSViewController: UIViewController {
     }
     
 }
-
-extension UIViewController {
-    
-    // 필수 약관 2개 선택 시 다음 view로 이동
-    func presentNextView() {
-        let nextViewController = storyboard?.instantiateViewController(withIdentifier: "CreateIDViewController") as! CreateIDViewController
-        present(nextViewController, animated: true, completion: nil)
-    }
-    
-    func showAlert (alertTitle: String, alertMessage: String, actionTitle: String) {
-        
-        // 경고 창 띄우기
-        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default)
-        alertController.addAction(okAction) // 확인
-        
-        self.present(alertController,animated: true,completion: nil)
-        
-    }
-    
-}
-

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire // 처리
 import SwiftKeychainWrapper
 
 class LoginViewController: UIViewController {
@@ -50,6 +49,7 @@ class LoginViewController: UIViewController {
 //                UserManager.setUser = userData
 //                UserDefaults.standard.set("\(userData.token)", forKey: "userToken")
                 
+                ////////////////////////////////////////////////
 //                키 체인에 문자열 값 추가 :
                 let saveSuccessful: Bool = KeychainWrapper.standard.set(userData.token, forKey: "userToken")
                 print(saveSuccessful)
@@ -61,6 +61,7 @@ class LoginViewController: UIViewController {
 //                keychain에서 문자열 값 제거 :
                 let removeSuccessful: Bool = KeychainWrapper.standard.remove(key: "userToken")
                 print(removeSuccessful)
+                ////////////////////////////////////////////////
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let nextViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController

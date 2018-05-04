@@ -61,26 +61,19 @@ class CreateIDViewController: UIViewController{
         // 모든 TextField의 정규식이 true일 때
         if emailCheck == true && mobileCheck == true && passWordCheck == true {
             
-            signUpDic.updateValue(emailTextField.text!, forKey: "username") // E-mail 입력 값을 Dic 형태로 저장
-            signUpDic.updateValue(mobileTextField.text!, forKey: "phone_number") // PhoneNumber 입력 값을 Dic 형태로 저장
-            signUpDic.updateValue(passWordTextField.text!, forKey: "password") // PassWord 입력 갑을 Dic 형태로 저장
+            // E-mail 입력 값을 Dic 형태로 저장
+            signUpDic.updateValue(emailTextField.text!, forKey: "username")
+            // PhoneNumber 입력 값을 Dic 형태로 저장
+            signUpDic.updateValue(mobileTextField.text!, forKey: "phone_number")
+            // PassWord 입력 갑을 Dic 형태로 저장
+            signUpDic.updateValue(passWordTextField.text!, forKey: "password")
             
             performSegue(withIdentifier: "profileSegue", sender: sender) // 다음 view로 이동하기
 
         }
-        
         // 모든 TextField의 정규식이 false일 때
-        if emailCheck == false && mobileCheck == false && passWordCheck == false {
+        guard emailCheck == false && mobileCheck == false && passWordCheck == false else {
             
-            // 경고창 띄우기
-            showAlert(alertTitle: "모두 작성해 주세요", alertMessage: "모두 작성해 주세요", actionTitle: "확인")
-            
-        }
-        
-        // 1개라도 정규식이 true일 때
-        if emailCheck == true || mobileCheck == true || passWordCheck == true {
-            
-            // E-mail TextField가 false일 때
             if emailCheck == false {
                 
                 // 경고 창 띄우기
@@ -88,21 +81,24 @@ class CreateIDViewController: UIViewController{
                 
             }
                 
-                // PhoneNumber TextField가 false일 때
             else if mobileCheck == false {
                 
-                // 경고 창 띄우기
                 showAlert(alertTitle: "모바일 번호 입력이 틀렸습니다.", alertMessage: "숫자만 입력해 주세요", actionTitle: "확인")
                 
             }
-                // passWord TextField가 false일 때
+                
             else if passWordCheck == false {
                 
-                // 경고 창 띄우기
                 showAlert(alertTitle: "비밀번호 입력이 틀렸습니다.", alertMessage: "5자 이상 입력해 주세요", actionTitle: "확인")
                 
             }
+            
+            return
+            
         }
+        
+        showAlert(alertTitle: "모두 작성해 주세요", alertMessage: "모두 작성해 주세요", actionTitle: "확인")
+        
     }
     
     // 이전 화면으로 dismiss 하는 버튼
