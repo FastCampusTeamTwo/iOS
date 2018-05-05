@@ -10,13 +10,14 @@ import Foundation
 
 class RegularExpression {
     
-    
+    // reg 적용
     func vaild(regEx: String, text: String) -> Bool{
         
         let textTest = NSPredicate(format:"SELF MATCHES %@", regEx)
         return textTest.evaluate(with: text)
     }
     
+    // enum으로 정리
     enum regExChange: String {
         case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         case mobile = "[0-9]{3}+-[0-9]{3,4}+-[0-9]{4}"
