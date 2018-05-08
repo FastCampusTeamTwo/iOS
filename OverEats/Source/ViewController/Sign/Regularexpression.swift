@@ -62,6 +62,21 @@ class RegularExpression {
             
         }
         
+//        switch (number.count / 4, number.count / 9, number.count / 13) {
+//        case (_,0,0):
+//            replaceOf = “(\\d{4})(\\d+)”
+//            replaceWith = “$1-$2"
+//        case (_,_,0):
+//            replaceOf = “(\\d{4})(\\d{4})(\\d+)”
+//            replaceWith = “$1-$2-$3"
+//        case (_,_,1):
+//            replaceOf = “(\\d{4})(\\d{4})(\\d{4})(\\d+)”
+//            replaceWith = “$1-$2-$3-$4"
+//        default:
+//            replaceOf = “(\\d{4})”
+//            replaceWith = “$1"
+//        }
+        
         // 4개 이상 입력시 적용
         if number.count <= 3 {
             
