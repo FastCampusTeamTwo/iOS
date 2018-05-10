@@ -24,6 +24,54 @@ class RegularExpression {
         case text = "^[A-Za-z가-힣]+$"
     }
     
+//    // 카드 넘버 입력 관련 포맷
+//    func format(cardNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
+//        guard !cardNumber.isEmpty else { return “” } // text가 있는지 확인
+//        guard let regex = try? NSRegularExpression(pattern: “[\\s-\\(\\)]“, options: .caseInsensitive) else { return “” } // 패턴
+//
+//    let textRange = NSString(string: cardNumber).range(of: cardNumber) // 현재 text의 range
+//
+//    // String형식으로 위에 값들이 적용된 text
+//    var number = regex.stringByReplacingMatches(in: cardNumber, options: .init(rawValue: 0),
+//                                                range: textRange, withTemplate: “”)
+//
+//    if number.count > 15 {
+//    let lengthDigitIndex = number.index(number.startIndex, offsetBy: 16)
+//    number = String(number[number.startIndex..<lengthDigitIndex])
+//    }
+//
+//    let end = number.index(number.startIndex, offsetBy: number.count)
+//    let range = number.startIndex..<end
+//    var replaceOf = “”
+//    var replaceWith = “”
+//
+//    // 어디서든 지울때 맨 뒤에 글자가 지우게 만든 것
+//    if shouldRemoveLastDigit {
+//    number = String(number[number.startIndex..<end])
+//    }
+//
+//    switch (number.count / 4, number.count / 9, number.count / 13) {
+//    case (0,_,_):
+//    replaceOf = “(\\d{4})”
+//    replaceWith = “$1"
+//    case (_,0,_):
+//    replaceOf = “(\\d{4})(\\d+)”
+//    replaceWith = “$1-$2"
+//    case (_,_,0):
+//    replaceOf = “(\\d{4})(\\d{4})(\\d+)”
+//    replaceWith = “$1-$2-$3"
+//    default:
+//    replaceOf = “(\\d{4})(\\d{4})(\\d{4})(\\d+)”
+//    replaceWith = “$1-$2-$3-$4"
+//    }
+//
+//    number = number.replacingOccurrences(of: replaceOf, with: replaceWith,
+//    options: .regularExpression, range: range)
+//
+//    return number
+//}
+    
+    
     // 자동으로 - 잡아주기
     func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
         
@@ -61,23 +109,7 @@ class RegularExpression {
             number = String(number[number.startIndex..<end])
             
         }
-        
-//        switch (number.count / 4, number.count / 9, number.count / 13) {
-//        case (_,0,0):
-//            replaceOf = “(\\d{4})(\\d+)”
-//            replaceWith = “$1-$2"
-//        case (_,_,0):
-//            replaceOf = “(\\d{4})(\\d{4})(\\d+)”
-//            replaceWith = “$1-$2-$3"
-//        case (_,_,1):
-//            replaceOf = “(\\d{4})(\\d{4})(\\d{4})(\\d+)”
-//            replaceWith = “$1-$2-$3-$4"
-//        default:
-//            replaceOf = “(\\d{4})”
-//            replaceWith = “$1"
-//        }
-        
-        // 4개 이상 입력시 적용
+    
         if number.count <= 3 {
             
 //            let end = number.index(number.startIndex, offsetBy: number.count-1)
