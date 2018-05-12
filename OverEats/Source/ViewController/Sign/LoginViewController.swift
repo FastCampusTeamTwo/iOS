@@ -45,23 +45,16 @@ class LoginViewController: UIViewController {
         PostService.signIn(email: email, password: password) { (result) in
             switch result {
             case .success(let userData):
+                ////////////////////////////////////////////////
                 
+                // keychain 으로 바꾸기 전
 //                UserManager.setUser = userData
 //                UserDefaults.standard.set("\(userData.token)", forKey: "userToken")
                 
                 ////////////////////////////////////////////////
-//                키 체인에 문자열 값 추가 :
-                let saveSuccessful: Bool = KeychainWrapper.standard.set(userData.token, forKey: "userToken")
-                print(saveSuccessful)
                 
-//                keychain에서 문자열 값 검색 :
-                let retrievedString: String? = KeychainWrapper.standard.string(forKey: "userToken")
-                print(retrievedString)
-                
-//                keychain에서 문자열 값 제거 :
-                let removeSuccessful: Bool = KeychainWrapper.standard.remove(key: "userToken")
-                print(removeSuccessful)
-                ////////////////////////////////////////////////
+                // 키 체인에 문자열 값 추가
+                KeychainWrapper.standard.set(userData.token, forKey: "userToken")
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let nextViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController

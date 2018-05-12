@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,9 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ////        setupRootViewController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
-        
+        /////////////////////////////////
 //        let token = UserDefaults.standard.string(forKey: "userToken!") // 토큰 값 가져오기
-
+        /////////////////////////////////
         return true
     }
     
@@ -57,25 +58,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-//    // 토큰 값으로 rootView 정하기
-//    func setupRootViewController() {
-//
-//        let viewController: UIViewController
-//
-//        if self.token == nil {
-//
-//            // 토큰이 없을 시에 view 정하기
-//            viewController = UIStoryboard.init(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "SignViewController") as! SignViewController
-//
-//        } else {
-//
-//            // 토큰이 있을 시에 view 정하기
-//            viewController = UIStoryboard.init(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "ToSViewController") as! ToSViewController
-//
-//        }
-//
-//        // rootView 정해주기
-//        window?.rootViewController = viewController
-//
-//    }
+    // 토큰 값으로 rootView 정하기
+    func setupRootViewController() {
+        
+        let viewController: UIViewController
+        
+        guard KeychainWrapper.standard.string(forKey: "userToken") != nil else {
+            
+            // 토큰이 없을 시에 view 정하기
+            viewController = UIStoryboard.init(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "SignViewController") as! SignViewController
+            return
+        }
+        // 토큰이 있을 시에 view 정하기
+        viewController = UIStoryboard.init(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "ToSViewController") as! ToSViewController
+        
+        // rootView 정해주기
+        window?.rootViewController = viewController
+        
+    }
 }
